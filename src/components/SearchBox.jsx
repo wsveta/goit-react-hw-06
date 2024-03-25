@@ -6,7 +6,7 @@ import { changeFilter, selectNameFilter } from "../redux/filtersSlice";
 const SearchBox = () => {
   const findInputId = useId();
   const dispatch = useDispatch();
-
+  const name = useSelector(selectNameFilter);
   const handleSearch = (e) => {
     dispatch(changeFilter(e.target.value));
   };
@@ -17,6 +17,7 @@ const SearchBox = () => {
         Find contacts by name
       </label>
       <input
+        value={name}
         onChange={handleSearch}
         autoComplete="on"
         id={findInputId}
